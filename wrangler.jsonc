@@ -1,0 +1,36 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "sentinel",
+	"main": "src/server.ts",
+	"compatibility_date": "2026-09-11",
+	"compatibility_flags": ["nodejs_compat"],
+
+	"observability": { "enabled": true },
+
+	"assets": {
+		"binding": "ASSETS",
+		"directory": "./dist/client",
+		"not_found_handling": "single-page-application"
+	},
+
+	"ai": { "binding": "AI" },
+
+	"durable_objects": {
+		"bindings": [{ "name": "CodexAgent", "class_name": "CodexAgent" }]
+	},
+
+	"workflows": [
+		{
+			"name": "sentinel-review",
+			"binding": "REVIEW_WORKFLOW",
+			"class_name": "ReviewWorkflow"
+		}
+	],
+
+	"migrations": [{ "tag": "v1", "new_sqlite_classes": ["CodexAgent"] }],
+
+	"vars": {
+		"SENTINEL_MODEL": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+		"SENTINEL_ENV": "development"
+	}
+}

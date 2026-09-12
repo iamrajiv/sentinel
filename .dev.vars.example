@@ -1,0 +1,12 @@
+# Local overrides for `npm run dev`. Copy to `.dev.vars` (git-ignored).
+#
+# Nothing here is required to run Sentinel locally: `npm run dev` boots with
+# remote bindings off, and the judged rules report themselves as degraded.
+#
+# These two are only needed by the eval harness in --live / --record mode,
+# which calls Workers AI over the REST API from Node rather than through the
+# `AI` binding. Create a token with the "Workers AI: Read" permission at
+# https://dash.cloudflare.com/profile/api-tokens
+#
+# CLOUDFLARE_ACCOUNT_ID=
+# CLOUDFLARE_API_TOKEN=

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.wrangler/
+.dev.vars
+.DS_Store
+*.log
+evals/out/
+
+# Ad-hoc transcript exports. The curated one lives in prompt-history/.
+PROMPTS_RAW.md
